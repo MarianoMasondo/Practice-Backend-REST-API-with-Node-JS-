@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@babel/node": "^7.23.9",
-    "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "http-status-codes": "^2.3.0",
     "node": "^18.20.2",
