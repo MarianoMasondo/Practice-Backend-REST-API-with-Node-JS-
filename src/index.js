@@ -1,15 +1,19 @@
 const express = require("express");
 const { StatusCodes } = require ("http-status-codes");
 
+const approutes = require("./routes")
+
 const app = express();
 const port = 3000;
-
-app.use(express.json())
 
 const STATUS = {
     SUCCESS: "OK",
     FAIRLURE: "NO"
 }
+app.use(express.json())
+
+app.use("/v1, approutes")
+
 
 app.get("/hello-you", (req, res ) => {
     res.status(StatusCodes.OK)
