@@ -4,7 +4,6 @@ const { StatusCodes } = require ("http-status-codes");
 const approutes = require("./routes")
 
 const app = express();
-
 const port = 3000;
 
 const STATUS = {
