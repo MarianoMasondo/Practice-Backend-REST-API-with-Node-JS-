@@ -6,7 +6,6 @@ const port = 3000;
 
 const STATUS = {
     status: "OK",
-    
     failure: "NO"
 }
 
