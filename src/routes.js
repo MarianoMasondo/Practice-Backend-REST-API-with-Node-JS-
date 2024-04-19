@@ -1,36 +1,50 @@
 const express = require("express");
 const { StatusCodes } = require("http-status-codes");
 
-const userService = require("services/user.service")
+const userService = require("./services/user.service")
 
 const router = express.Router();
-const port = 3000;
 
 const STATUS = {
   status: "OK",
   failure: "NO",
 };
 
-router.get("/hello-word", (req, res) => {
+router.get("/ping", (req, res) => {
   res.status(StatusCodes.OK);
-  res.send("Hello word!");
+  res.send("OK");
 });
 
 router.post("/add", (req, res) => {
-  const data = [];
   const { body: user } = req;
 
-  userService.addUser()
-  if (!user.name) {
-    return res.status(StatusCodes.BAD_REQUEST).send({
-      status: STATUS.failure,
-      message: "Name is required",
-    });
-  }
+  const addedUser = userService.addUser(user)
+  
   return res.status(StatusCodes.CREATED).send({
     status: STATUS.success,
-    message: data,
+    message: addedUser,
   });
 });
 
-export default router;
+router.put("/update/:id", (req, res) => {
+  const { body: user } = req;
+
+  const id = parseInt(req.params.id, 10)
+
+  const updatedUser = userService.updatedUser(id, user)
+
+  if(updatedUser){
+    return res.status(StatusCodes.OK).send({
+      status: STATUS.success,
+      message: updatedUser,
+    });
+  }else {
+    return res.status(StatusCodes.NOT_FOUND).send({
+      status: STATUS.failure,
+      message: `User "${id}" is not foud`,
+    });
+  }
+  
+});
+
+module.export = router;

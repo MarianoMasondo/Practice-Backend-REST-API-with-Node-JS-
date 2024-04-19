@@ -11,11 +11,17 @@ const get = (userId) => {
     return findUser;
 }
 
+const getAll = () =>
+{
+    return users
+}
 const update = (userId) => {
-    const newUser = { ...details, id: users.length+1 };
-    users.push(newUser);
-    
-    return true;
+    users.map((user, index) => {
+        if(user.id === newDetails.id){
+            
+        }
+    });
+
 }
 
 const insert = (details) => {
@@ -39,6 +45,7 @@ const remove = (userId) => {
 
 export default {
     get,
+    getAll,
     update,
     insert,
     remove,
