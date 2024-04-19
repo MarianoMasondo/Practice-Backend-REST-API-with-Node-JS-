@@ -6,4 +6,6 @@ const users = [
         city: "Córdoba",
         country: "Argentina"
     }
-]
+];
+
+export default users;

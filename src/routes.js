@@ -1,6 +1,8 @@
 const express = require("express");
 const { StatusCodes } = require("http-status-codes");
 
+const userService = require("services/user.service")
+
 const router = express.Router();
 const port = 3000;
 
@@ -16,9 +18,10 @@ router.get("/hello-word", (req, res) => {
 
 router.post("/add", (req, res) => {
   const data = [];
-  const { body } = req;
+  const { body: user } = req;
 
-  if (!body.name) {
+  userService.addUser()
+  if (!user.name) {
     return res.status(StatusCodes.BAD_REQUEST).send({
       status: STATUS.failure,
       message: "Name is required",
