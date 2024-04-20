@@ -14,7 +14,6 @@ const removeUser = (userId) => {
 }
 
 module.exports = {
-    
     getUser,
     updateUser,
     addUser,
