@@ -10,7 +10,7 @@
   "license": "MIT",
   "main": "node_modules/.bin/nodemon --exec babel-node src/server.js",
   "scripts": {
-    "start": "node_modules/.bin/nodemon --exec babel-node src/server.js",
+    "start": "node_modules\\.bin\\nodemon.cmd --exec babel-node src/server.js",
     "test": "ava"
   },
   "engines": {

@@ -47,4 +47,4 @@ router.put("/update/:id", (req, res) => {
   
 });
 
-module.export = router;
+module.exports = router;
