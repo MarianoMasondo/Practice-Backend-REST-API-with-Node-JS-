@@ -1,50 +1,41 @@
 import express from "express";
+import { expressYupMiddleware } from "express-yup-middleware";
 import { StatusCodes } from "http-status-codes";
-
-import userController from".controllers
 
 const router = express.Router();
 
-const STATUS = {
-  status: "OK",
-  failure: "NO",
-};
+router.get("/all", userController.getAllUsers);
 
-router.get("/ping", (req, res) => {
-  res.status(StatusCodes.OK);
-  res.send("OK");
-});
+router.get(
+  "/:id",
+  expressYupMiddleware({
+    schemaValidator: getUser
+  }),
+  userController.getUser
+);
 
-router.post("/add", (req, res) => {
-  const { body: user } = req;
+router.post(
+  "/",
+  expressYupMiddleware({
+    schemaValidator: addUser
+  }),
+  userController.addUser
+);
 
-  const addedUser = userService.addUser(user)
-  
-  return res.status(StatusCodes.CREATED).send({
-    status: STATUS.success,
-    message: addedUser,
-  });
-});
+router.put(
+  "/:id",
+  expressYupMiddleware({
+    schemaValidator:updateUser
+  }),
+  userController.updateUser
+);
 
-router.put("/update/:id", (req, res) => {
-  const { body: user } = req;
+router.delete(
+  "/:id",
+  expressYupMiddleware({
+    schemaValidator: removeUser
+  }),
+  userController.removeUser
+)
 
-  const id = parseInt(req.params.id, 10)
-
-  const updatedUser = userService.updateUser(id, user)
-
-  if(updatedUser){
-    return res.status(StatusCodes.OK).send({
-      status: STATUS.success,
-      message: updatedUser,
-    });
-  }else {
-    return res.status(StatusCodes.NOT_FOUND).send({
-      status: STATUS.failure,
-      message: `User "${id}" is not foud`,
-    });
-  }
-  
-});
-
-module.exports = router;
+export default router;
