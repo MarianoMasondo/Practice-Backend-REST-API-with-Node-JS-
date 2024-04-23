@@ -1,9 +1,11 @@
-const express = require("express");
+import express from "express";
+import helmet from "helmet";
+import cors from "cors"
 
-const appRoutes = require("./routes");
+import
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(express.json());
 
