@@ -1,7 +1,7 @@
-const express = require("express");
-const { StatusCodes } = require("http-status-codes");
+import express from "express";
+import { StatusCodes } from "http-status-codes";
 
-const userService = require("./services/user.service")
+import userController from".controllers
 
 const router = express.Router();
 
