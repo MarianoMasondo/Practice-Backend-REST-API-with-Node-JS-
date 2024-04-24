@@ -1,6 +1,8 @@
 import express from "express";
 import { expressYupMiddleware } from "express-yup-middleware";
-import { StatusCodes } from "http-status-codes";
+
+import userController from "./controllers/user.controller";
+import { getUser, addUser, updateUser, removeUser } from "./user.schemas";
 
 const router = express.Router();
 
