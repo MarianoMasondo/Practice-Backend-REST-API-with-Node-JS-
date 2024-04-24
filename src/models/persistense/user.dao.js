@@ -2,7 +2,7 @@ import users from "../data/users.data";
 
 
 const get = (userId) => {
-    const findUser = users.find((user) => {
+    users.find((user) => {
         if(users.id == userId) {
             return user;
         }
@@ -15,6 +15,7 @@ const getAll = () =>
 {
     return users
 }
+
 const update = (userId, newDetails) => {
     let existingUser = null;
     let userIndex; 
@@ -25,7 +26,6 @@ const update = (userId, newDetails) => {
             userIndex = index;            
         }
     });
-
     if(!existingUser) {
         return false;
     }
@@ -38,7 +38,6 @@ const update = (userId, newDetails) => {
     user.splice(userIndex, 1, updatedUser);
 
     return
-
 }
 
 const insert = (details) => {
