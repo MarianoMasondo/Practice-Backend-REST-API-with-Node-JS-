@@ -6,7 +6,7 @@
     "Espress",
     "JS"
   ],
-  "author": "Pierre-Henry Soria",
+  "author": "Mariano Masondo",
   "license": "MIT",
   "main": "node_modules/.bin/nodemon --exec babel-node src/server.js",
   "scripts": {
