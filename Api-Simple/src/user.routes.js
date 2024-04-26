@@ -11,7 +11,7 @@ router.get("/all", userController.getAllUsers);
 router.get(
   "/:id",
   expressYupMiddleware({
-    schemaValidator: getUser
+    schemaValidator: getUser,
   }),
   userController.getUser
 );
@@ -19,7 +19,7 @@ router.get(
 router.post(
   "/",
   expressYupMiddleware({
-    schemaValidator: addUser
+    schemaValidator: addUser,
   }),
   userController.addUser
 );
@@ -27,7 +27,7 @@ router.post(
 router.put(
   "/:id",
   expressYupMiddleware({
-    schemaValidator:updateUser
+    schemaValidator: updateUser,
   }),
   userController.updateUser
 );
@@ -35,9 +35,9 @@ router.put(
 router.delete(
   "/:id",
   expressYupMiddleware({
-    schemaValidator: removeUser
+    schemaValidator: removeUser,
   }),
   userController.removeUser
-)
+);
 
 export default router;
