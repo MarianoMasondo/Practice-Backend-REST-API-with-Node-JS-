@@ -1,6 +1,7 @@
 import userDao from "../models/persistense/user.dao";
 
-const getUser = (userId) => {
+const getUser = (userId) => { 
+  
   userDao.get(userId);
 };
 const updateUser = (userId, details) => {
